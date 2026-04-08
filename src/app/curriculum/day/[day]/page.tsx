@@ -60,7 +60,7 @@ export default async function DayPage({ params }: Props) {
 
       <div className="mt-10 space-y-10 rounded-2xl border border-white/10 bg-zinc-900/40 p-6 sm:p-8">
         <List title="Objectives" items={day.objectives} />
-        <List title="Ideas from the source video" items={day.videoIdeas} />
+        <List title="Tie-ins to the source video" items={day.videoIdeas} />
         <section>
           <h2 className="text-sm font-semibold uppercase tracking-wide text-zinc-500">Practical steps (execute in order)</h2>
           <ol className="mt-3 list-inside list-decimal space-y-2 text-sm text-zinc-300">

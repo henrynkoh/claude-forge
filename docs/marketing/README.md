@@ -1,6 +1,6 @@
 # Marketing & ad copy — index
 
-Ready-to-adapt copy for promoting **Seattle Startup OpenClaw Week** (professional / founder education): **Obsidian** + **self-hosted agent** (e.g. OpenClaw) + **DIKW**, greater **Seattle** cohort.
+Ready-to-adapt copy for promoting **Seattle Claude Forge Startup Week** (professional / founder education): **Claude Code** + **Claude Forge** (eleven agents, slash commands, MCP) — greater **Seattle** cohort.
 
 Always pair with [ADS-DISCLAIMERS.md](./ADS-DISCLAIMERS.md).
 
@@ -16,7 +16,7 @@ Always pair with [ADS-DISCLAIMERS.md](./ADS-DISCLAIMERS.md).
 | Newsletter (series & launch) | [newsletter.md](./newsletter.md) |
 | Email (1:1 & broadcast) | [email.md](./email.md) |
 
-**Note:** “Treads” in informal requests usually means **Threads** (Meta’s short-text app)—covered in `threads-ads.md`.
+**Note:** Informal “Treads” requests usually mean **Threads** (Meta)—covered in `threads-ads.md`.
 
 ## Placeholders
 
@@ -24,9 +24,9 @@ Replace globally:
 
 - `{{app_url}}` — deployed curriculum site or repo pages URL  
 - `{{signup_url}}` — application or waitlist  
-- `{{video_url}}` — `https://www.youtube.com/watch?v=F12WOZ9ICG4` (source inspiration / lifelogging + agent)  
+- `{{video_url}}` — `https://www.youtube.com/watch?v=rSvpKOyaefU` (source lecture — Claude Code 실전, eleven agents)  
 - `{{facilitator_name}}`, `{{org_name}}` — your details  
 
 ## One-line positioning (English)
 
-> **7-day greater Seattle cohort for early-stage teams — build a Startup Second Brain in Obsidian, connect a local agent (e.g. OpenClaw), and climb DIKW with explicit security habits. Educational; outcomes vary.**
+> **7-day greater Seattle cohort for early-stage teams — Claude Code + Claude Forge: eleven AI agents, MCP tools, and full plan→ship pipelines. Educational; outcomes vary.**

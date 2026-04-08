@@ -58,7 +58,7 @@ export default function PostWeekPage() {
           <Link href="/curriculum/day/7" className="text-emerald-400 underline-offset-4 hover:underline">
             Day 7
           </Link>{" "}
-          page for the scorecard and maintenance calendar prompts.
+          page for showcase structure, metrics, and alumni next steps.
         </p>
       </div>
     </main>

@@ -9,30 +9,28 @@ Disclaimer: [ADS-DISCLAIMERS.md](./ADS-DISCLAIMERS.md)
 ## SEO title & meta description
 
 **Title (≤60 chars):**  
-`Seattle Startup OpenClaw Week | Obsidian + Local Agent`
+`Seattle Claude Forge Week | Claude Code + MCP`
 
 **Meta description (≤155 chars):**  
-`7-day founder cohort in greater Seattle: Obsidian second brain, self-hosted AI agent, DIKW framework. Educational; apply at {{signup_url}}.`
+`7-day founder cohort in greater Seattle: Claude Code, Claude Forge (11 agents), MCP tools. Educational; apply at {{signup_url}}.`
 
 ---
 
 ## Intro block (Gutenberg: Paragraph + Heading)
 
-### Build a Startup Second Brain (Obsidian + local agent)
+### Ship with an AI agent orchestra (Claude Code + Forge)
 
-Startups in **Seattle** move fast; **knowledge** should accumulate like **compound interest**—not reset every time someone opens a new chat.
-
-**Seattle Startup OpenClaw Week** is a structured **seven-day** experience for **small cohorts** of early-stage teams. Participants build a **Markdown vault** in **Obsidian**, connect a **self-hosted agent** (e.g. **OpenClaw** or equivalent) that reads their notes, and practice **DIKW** — from raw data to **briefings and decisions** — with **security** and **human approval** for sensitive actions.
+Startups in **Seattle** need **speed with guardrails**. This cohort is not about generic chat — it is about **Claude Code**, **Claude Forge** (multiple agents, slash commands, skills), and **MCP** so routine work flows through **plan → build → verify → ship → retro**, with founders on **strategy** and **approval gates**.
 
 ---
 
 ## Bullets (List block)
 
-- **Who:** Founders, co-founders, and small teams (e.g. 2–5 people per startup).  
-- **What:** Capture → structure → **agent** → synthesize → **guardrailed** automations.  
-- **Tools:** Obsidian + local agent + optional cloud LLM APIs; **Telegram/WhatsApp/Slack** for testing.  
-- **Where:** Greater Seattle + hybrid async.  
-- **Disclaimer:** Educational; not affiliated with Anthropic, Obsidian, YouTube, or third-party agent projects; **no** guaranteed outcomes.
+- **Who:** Early-stage teams in greater Seattle (e.g. **8–12 startups**, **2–3** people per team max).  
+- **What:** Hands-on **Forge** setup, **eleven agent** roles, **MCP** integration, full **pipeline** on a real task, **hooks** and **showcase**.  
+- **Tools:** Claude Code, Claude Forge (cohort-pinned repo), MCP servers, GitHub; **Anthropic API** required.  
+- **Where:** Hybrid — in-person Seattle blocks + homework.  
+- **Disclaimer:** Educational; not affiliated with Anthropic, YouTube, or third-party projects; **no** guaranteed outcomes.
 
 ---
 

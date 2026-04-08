@@ -41,19 +41,25 @@ function NavButtons({
                   key={item.id}
                   type="button"
                   onClick={() => onPick(item.id)}
-                  className={`group flex w-full items-center gap-2.5 rounded-xl px-2.5 py-2.5 text-left text-sm transition-all duration-200 ${
+                  className={`group relative flex w-full items-center gap-2.5 overflow-hidden rounded-xl px-2.5 py-2.5 text-left text-sm transition-all duration-200 ${
                     on
-                      ? "bg-gradient-to-r from-teal-500/20 via-emerald-500/15 to-violet-500/15 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.14)]"
-                      : "text-zinc-400 hover:bg-white/[0.06] hover:text-zinc-100"
+                      ? "bg-gradient-to-r from-teal-500/25 via-emerald-500/15 to-violet-500/20 text-white shadow-[inset_0_0_0_1px_rgba(255,255,255,0.18)]"
+                      : "text-zinc-400 hover:bg-white/[0.07] hover:text-zinc-100"
                   }`}
                 >
+                  {on ? (
+                    <span
+                      className="absolute inset-y-1 left-0 w-1 rounded-full bg-gradient-to-b from-teal-400 to-emerald-400 shadow-[0_0_12px_rgba(45,212,191,0.6)]"
+                      aria-hidden
+                    />
+                  ) : null}
                   <span
-                    className={`h-2 w-2 shrink-0 rounded-full shadow-sm transition ${
-                      on ? `${item.accent} scale-110 ring-2 ring-white/20` : `${item.accent} opacity-60 group-hover:opacity-100`
+                    className={`relative ml-0.5 h-2 w-2 shrink-0 rounded-full shadow-sm transition ${
+                      on ? `${item.accent} scale-110 ring-2 ring-white/25` : `${item.accent} opacity-50 group-hover:opacity-100`
                     }`}
                     aria-hidden
                   />
-                  <span className="min-w-0 flex-1 leading-snug">{item.label}</span>
+                  <span className="relative min-w-0 flex-1 leading-snug">{item.label}</span>
                 </button>
               );
             })}
@@ -64,8 +70,28 @@ function NavButtons({
   );
 }
 
+function useScrollProgress() {
+  const [p, setP] = useState(0);
+  useEffect(() => {
+    const onScroll = () => {
+      const el = document.documentElement;
+      const max = el.scrollHeight - el.clientHeight;
+      setP(max > 0 ? Math.min(1, Math.max(0, el.scrollTop / max)) : 0);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+  return p;
+}
+
 export function LandingNavDesktop() {
   const [active, setActive] = useState<string>(LANDING_NAV[0]?.id ?? "hero");
+  const scrollProgress = useScrollProgress();
 
   useEffect(() => {
     const nodes = LANDING_NAV.map((s) => document.getElementById(s.id)).filter(Boolean) as HTMLElement[];
@@ -73,11 +99,13 @@ export function LandingNavDesktop() {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting && e.target.id) setActive(e.target.id);
-        }
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        const top = visible[0];
+        if (top?.target?.id) setActive(top.target.id);
       },
-      { rootMargin: "-38% 0px -38% 0px", threshold: [0, 0.15, 0.35] },
+      { rootMargin: "-42% 0px -42% 0px", threshold: [0, 0.08, 0.2, 0.35, 0.5] },
     );
 
     nodes.forEach((n) => observer.observe(n));
@@ -92,10 +120,19 @@ export function LandingNavDesktop() {
   return (
     <nav className="flex min-h-0 flex-1 flex-col" aria-label="Page sections">
       <div className="border-b border-white/10 px-4 py-3">
+        <div className="mb-2 h-1.5 overflow-hidden rounded-full bg-white/5">
+          <div
+            className="h-full rounded-full bg-gradient-to-r from-teal-400 via-emerald-400 to-violet-400 transition-[width] duration-150 ease-out"
+            style={{ width: `${Math.round(scrollProgress * 100)}%` }}
+            aria-hidden
+          />
+        </div>
         <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-teal-300/90">On this page</p>
-        <p className="mt-1 text-[11px] leading-relaxed text-zinc-500">Scroll or jump — active section follows you.</p>
+        <p className="mt-1 text-[11px] leading-relaxed text-zinc-500">
+          Scroll this list to reach all {LANDING_NAV.length} sections — active item tracks your reading.
+        </p>
       </div>
-      <div className="min-h-0 flex-1 overflow-y-auto overscroll-y-contain pr-1 [scrollbar-color:rgba(45,212,191,0.45)_rgba(255,255,255,0.06)] [scrollbar-width:thin]">
+      <div className="landing-nav-scroll min-h-0 flex-1 overflow-y-auto overscroll-y-contain pr-1">
         <NavButtons onPick={onPick} active={active} />
       </div>
     </nav>

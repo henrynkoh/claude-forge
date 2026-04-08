@@ -1,7 +1,7 @@
-/** Source video: “I fed all the data of my life to OpenClaw” — lifelogging, second brain, local agent. */
-export const SOURCE_VIDEO_URL = "https://www.youtube.com/watch?v=F12WOZ9ICG4" as const;
+/** Source: “Claude Code 실전 강의 — AI 에이전트 11개가 알아서 일한다” (11-agent practical lecture). */
+export const SOURCE_VIDEO_URL = "https://www.youtube.com/watch?v=rSvpKOyaefU" as const;
 
-export const SITE_NAME = "Seattle Startup Second Brain Week" as const;
+export const SITE_NAME = "Seattle Claude Forge Startup Week" as const;
 
 /** Set `NEXT_PUBLIC_GITHUB_REPO_URL` in `.env.local` (e.g. `https://github.com/you/seattle-startup-openclaw-week`). */
 export function getGithubRepoUrl(): string {
@@ -33,7 +33,7 @@ export const LANDING_NAV: readonly LandingNavItem[] = [
   { id: "why", label: "Why", accent: "bg-cyan-400", group: "Overview" },
   { id: "program", label: "Program", accent: "bg-fuchsia-400", group: "Overview" },
   { id: "cohort", label: "Cohort", accent: "bg-emerald-400", group: "Overview" },
-  { id: "dikw", label: "DIKW", accent: "bg-sky-400", group: "Curriculum" },
+  { id: "forge-loop", label: "Forge loop", accent: "bg-sky-400", group: "Curriculum" },
   { id: "tools", label: "Tools", accent: "bg-violet-400", group: "Curriculum" },
   { id: "flow", label: "Pipeline", accent: "bg-amber-400", group: "Curriculum" },
   { id: "features", label: "Features", accent: "bg-rose-400", group: "Curriculum" },

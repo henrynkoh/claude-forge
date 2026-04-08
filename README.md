@@ -1,10 +1,10 @@
-# Seattle Startup OpenClaw Week
+# Seattle Claude Forge Startup Week
 
 [![Next.js](https://img.shields.io/badge/Next.js-16-000000?logo=next.js&logoColor=white)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![License](https://img.shields.io/badge/license-Private-lightgrey)](#)
 
-**Interactive curriculum site** for a **7-day, greater Seattle** cohort: **Obsidian** (startup second brain) + **OpenClaw** or an equivalent **self-hosted agent**, aligned to [**this source video**](https://www.youtube.com/watch?v=F12WOZ9ICG4) — lifelogging, **DIKW**, and local-first security habits.
+**Interactive curriculum site** for a **7-day, greater Seattle** cohort: **Claude Code** + **Claude Forge** (eleven agents, slash commands, MCP) aligned to [**this source lecture**](https://www.youtube.com/watch?v=rSvpKOyaefU) — practical agent orchestration for startups.
 
 ---
 
@@ -28,9 +28,9 @@ When you run the app ([locally](#run-locally) or on **Vercel** / **GitHub Pages*
 
 | Feature | What you get |
 |--------|----------------|
-| **Left sidebar (desktop)** | Scrollable **On this page** navigation grouped into **Overview**, **Curriculum**, and **Resources** — jump to Intro, Program, DIKW, 7 days, Prompts, Docs, etc. Active section highlights as you scroll. |
+| **Left sidebar (desktop)** | Scrollable **On this page** navigation grouped into **Overview**, **Curriculum**, and **Resources** — jump to Intro, Program, Forge loop, 7 days, Prompts, Docs, etc. Active section highlights as you scroll. |
 | **Top chips (mobile)** | Horizontal scroll of the same sections for small screens. |
-| **Hero** | Gradient mesh, grid background, **bento-style** stat cards (7 days, DIKW, live modules). |
+| **Hero** | Gradient mesh, grid background, **bento-style** stat cards (7 days, 11 agents, sections). |
 | **GitHub (bottom-right)** | Fixed **“View on GitHub ↗”** button — set `NEXT_PUBLIC_GITHUB_REPO_URL` so it points at *this* repository. |
 
 GitHub’s **README** (this file) is the text-first overview; the **Next.js app** is the rich, visual experience.
@@ -61,7 +61,7 @@ GitHub’s **README** (this file) is the text-first overview; the **Next.js app*
 | Newsletter | [docs/marketing/newsletter.md](./docs/marketing/newsletter.md) |
 | Email | [docs/marketing/email.md](./docs/marketing/email.md) |
 
-Replace placeholders in marketing files: `{{app_url}}`, `{{signup_url}}`, `{{video_url}}`, `{{facilitator_name}}`, `{{org_name}}`.
+Replace placeholders in marketing files: `{{app_url}}`, `{{signup_url}}`, `{{video_url}}` (default lecture: `https://www.youtube.com/watch?v=rSvpKOyaefU`), `{{facilitator_name}}`, `{{org_name}}`.
 
 ---
 
@@ -114,4 +114,4 @@ Next.js 16 (App Router), React 19, Tailwind CSS 4, TypeScript.
 
 ## Legal / educational posture
 
-Educational use for founders and teams. Not affiliated with YouTube, Anthropic, Obsidian, or any OpenClaw or third-party agent project. Verify tool licenses, API terms, and data handling before ingesting sensitive company material.
+Educational use for founders and teams. Not affiliated with YouTube, Anthropic, or any third-party **Claude Forge**, **MCP server**, or community project. **Claude Code** and **Forge** are subject to their respective terms; verify API usage, pricing, and data handling before connecting repos, customer data, or production systems.

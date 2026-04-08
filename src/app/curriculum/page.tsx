@@ -19,21 +19,21 @@ export default function CurriculumOverviewPage() {
       </div>
 
       <p className="mt-4 text-sm font-medium text-teal-400">Source inspiration</p>
-      <h1 className="mt-2 text-3xl font-semibold text-white sm:text-4xl">Seattle startup second brain · program overview</h1>
+      <h1 className="mt-2 text-3xl font-semibold text-white sm:text-4xl">Seattle Claude Forge week · program overview</h1>
       <p className="mt-4 max-w-3xl text-sm leading-relaxed text-zinc-400">
-        This one-week intensive translates the ideas in{" "}
+        This one-week intensive translates{" "}
         <a
           href={SOURCE_VIDEO_URL}
           target="_blank"
           rel="noopener noreferrer"
           className="text-teal-300 underline-offset-4 hover:underline"
         >
-          the source video
+          the source lecture
         </a>{" "}
-        — lifelogging, feeding comprehensive data to a local agent, and building durable memory — into a practical
-        bootcamp for startups. Stack emphasis: <strong className="text-zinc-200">Obsidian</strong> for the knowledge layer,{" "}
-        <strong className="text-zinc-200">OpenClaw</strong> (or an equivalent self-hosted agent) for action over your vault,
-        with explicit DIKW and security habits throughout.
+        (Claude Code 실전 — eleven AI agents working autonomously) into hands-on days for Seattle-area startups. Stack
+        emphasis: <strong className="text-zinc-200">Claude Code</strong> as the workspace,{" "}
+        <strong className="text-zinc-200">Claude Forge</strong> for the agent “milk kit,”{" "}
+        <strong className="text-zinc-200">MCP</strong> for tools, and explicit security and cost habits throughout.
       </p>
 
       <div className="prose-sb mt-12 max-w-3xl">
@@ -82,7 +82,7 @@ export default function CurriculumOverviewPage() {
             <strong className="text-zinc-200">Morning:</strong> concepts, tie-in to the video, facilitated discussion.
           </li>
           <li>
-            <strong className="text-zinc-200">Hands-on:</strong> Obsidian, agent setup, or integrations — facilitator support.
+            <strong className="text-zinc-200">Hands-on:</strong> Claude Code, Forge, MCP, hooks — facilitator support.
           </li>
           <li>
             <strong className="text-zinc-200">Afternoon (most days):</strong> deeper workshops, group activities, or security

@@ -20,10 +20,11 @@ export function GitHubFab() {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="landing-github-fab group fixed bottom-5 right-5 z-[60] flex max-w-[calc(100vw-2.5rem)] items-center gap-3 rounded-2xl border border-white/20 bg-gradient-to-br from-zinc-900/95 via-zinc-900/90 to-teal-950/90 px-4 py-3.5 text-sm font-semibold text-white shadow-[0_16px_50px_-12px_rgba(45,212,191,0.55),0_8px_24px_-8px_rgba(0,0,0,0.6)] backdrop-blur-xl transition duration-200 hover:-translate-y-0.5 hover:border-teal-400/50 hover:shadow-[0_20px_60px_-12px_rgba(45,212,191,0.65)] focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/90 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
+      title={href}
+      className="landing-github-fab group fixed bottom-5 right-5 z-[70] flex max-w-[calc(100vw-2.5rem)] items-center gap-3 rounded-2xl border border-white/20 bg-gradient-to-br from-zinc-900/95 via-zinc-900/90 to-teal-950/90 px-4 py-3.5 text-sm font-semibold text-white shadow-[0_16px_50px_-12px_rgba(45,212,191,0.55),0_8px_24px_-8px_rgba(0,0,0,0.6)] backdrop-blur-xl transition duration-200 hover:-translate-y-1 hover:border-teal-400/55 hover:shadow-[0_24px_70px_-12px_rgba(45,212,191,0.7)] focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-400/90 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950"
       aria-label="Open repository on GitHub"
     >
-      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/15 transition group-hover:bg-teal-500/20 group-hover:ring-teal-400/30">
+      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/15 transition group-hover:bg-teal-500/25 group-hover:ring-teal-400/40">
         <GitHubIcon className="h-5 w-5 text-teal-200" />
       </span>
       <span className="hidden min-w-0 flex-col items-start sm:flex">

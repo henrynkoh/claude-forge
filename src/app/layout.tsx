@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    "Seven-day Seattle-area cohort: build a Startup Second Brain with Obsidian + OpenClaw — DIKW, lifelogging, local-first agents, and practical automations for early-stage teams.",
+    "Seven-day Seattle-area cohort: Claude Code + Claude Forge — eleven specialized agents, MCP tools, slash commands, and full plan→ship pipelines for early-stage startups.",
 };
 
 export default function RootLayout({

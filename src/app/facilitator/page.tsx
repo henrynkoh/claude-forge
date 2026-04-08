@@ -12,9 +12,9 @@ const sampleSchedule = [
     block: "Week before",
     items: [
       "Confirm venue, Wi‑Fi, power strips, and screen",
-      "Share prerequisites + install links (Obsidian, terminal, agent repo)",
-      "Seed shared templates: Decision Record, Customer Insight, Capture playbook",
-      "Optional: peer Telegram/Slack for agent testing",
+      "Share prerequisites + install links (Claude Code, Node/npm, Anthropic API, Forge repo URL)",
+      "Pin Forge + Claude Code versions in cohort doc; share `.env.example` without real keys",
+      "Optional: cohort Slack/Discord for install unblock and API billing questions",
     ],
   },
   {
@@ -30,7 +30,7 @@ const sampleSchedule = [
       "04:45–05:00 — Optional async instructions for evening check-in",
     ],
   },
-  { block: "Day 3", items: ["Extra TA coverage for installs; security session is mandatory."] },
+  { block: "Day 3", items: ["Extra TA coverage for MCP auth and scopes; security session is mandatory."] },
   { block: "Day 5–6", items: ["Optional guest founder (15–20 min); confirm AV and bio."] },
   { block: "Day 7", items: ["Timed demos; feedback slips; certificates; photo release if marketing."] },
 ] as const;
@@ -48,8 +48,8 @@ export default function FacilitatorPage() {
 
       <h1 className="mt-6 text-3xl font-semibold text-white sm:text-4xl">Facilitator checklist</h1>
       <p className="mt-4 max-w-3xl text-sm leading-relaxed text-zinc-400">
-        Run alongside each day page. This cohort expects comfort with Obsidian, Markdown, local agents, and frank security
-        conversations — plus patience for mixed technical levels in founder teams.
+        Run alongside each day page. This cohort expects comfort with Claude Code, terminal basics, GitHub, MCP
+        configuration, and frank API/security conversations — plus patience for mixed technical levels in founder teams.
       </p>
 
       <div className="mt-10 space-y-6 rounded-2xl border border-teal-500/20 bg-teal-500/5 p-6">
@@ -57,10 +57,10 @@ export default function FacilitatorPage() {
         <p className="text-sm text-zinc-400">
           Keep{" "}
           <a href={SOURCE_VIDEO_URL} target="_blank" rel="noopener noreferrer" className="text-teal-300 hover:underline">
-            the reference video
+            the reference lecture
           </a>{" "}
-          bookmarked for Day 1–2. Preview chapters on lifelogging, agent interaction, and privacy themes so discussions stay
-          grounded.
+          bookmarked for Day 1–2. Preview segments on Forge setup, the eleven agents, slash commands, and MCP so
+          discussions stay grounded.
         </p>
       </div>
 
@@ -102,7 +102,7 @@ export default function FacilitatorPage() {
         <h2 className="text-lg font-semibold text-white">Promotion &amp; partners (Seattle)</h2>
         <p className="mt-2 text-sm text-zinc-400">
           LinkedIn, Seattle Startup Week communities, UW networks, and local Meetups — emphasize{" "}
-          <strong className="text-zinc-300">practical, local-first AI</strong> with clear privacy framing. Scholarships:
+          <strong className="text-zinc-300">practical agent orchestration</strong> (ship faster with guardrails). Scholarships:
           allocate seats before public launch when possible.
         </p>
       </div>

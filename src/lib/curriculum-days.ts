@@ -2,420 +2,429 @@ import type { CurriculumDay } from "./types";
 
 export const PROGRAM_OVERVIEW = {
   audience:
-    "Early-stage startups in the greater Seattle area: founders, co-founders, or small teams of 2–5 people.",
+    "A small, selected group of 8–12 early-stage startups from the greater Seattle area: pre-seed/seed SaaS, AI tools, biotech-adjacent tech, or developer-tools founders (2–3 people per startup max).",
   cohortExamples: [
+    "Madrona / AI2 founder circles",
     "Techstars Seattle",
     "Pioneer Square Labs",
-    "Impact Hub Seattle",
-    "UW CoMotion / startup labs",
+    "UW CoMotion",
     "Seattle Startup Week / founder Slack groups",
-    "WeWork / Capitol Hill & South Lake Union co-working circles",
+    "WeWork / South Lake Union & Fremont co-working",
   ],
-  groupSize: "8–12 participants (small cohort for hands-on support and peer accountability).",
-  duration: "7 consecutive days; ~4–6 hours/day structured time plus homework.",
+  groupSize: "8–12 founders or teams (2–3 people per startup max) for hands-on mentoring.",
+  duration: "7 consecutive days; ~4–6 hours/day structured time (mornings instruction + demos, afternoons labs + feedback) plus optional office hours and homework.",
   format:
-    "Hybrid — in-person meetups in Seattle (co-working, accelerator, or rented event space) plus async tools (shared Obsidian vault or Notion, Slack/Discord, messaging apps for agent testing).",
+    "In-person hybrid bootcamp in Seattle (e.g. WeWork, partner venue in South Lake Union or Fremont). Evenings: optional office hours and async homework.",
   goals: [
-    "Build a secure, local-first “Startup Second Brain” with Obsidian and a self-hosted agent (e.g. OpenClaw) connected to company + founder data.",
-    "Apply lifelogging and the DIKW pyramid so raw startup data becomes information, knowledge, and decision-ready wisdom.",
-    "Ship practical automations (briefings, prioritization, risk spotting) with explicit privacy and ops-security habits.",
+    "Each startup ships a working AI agent system (Claude Forge + MCP tools) that automates at least one core workflow: feature work, content/lead gen, internal ops, or MVP prototyping.",
+    "Teams document agents, a custom Forge setup, slash-command and skill workflows, and measurable time savings vs. manual work.",
+    "Founders practice orchestration: planning → development → testing → review → deployment — with humans on decisions and creative oversight.",
   ],
   prerequisites: [
-    "Basic computer skills; laptop; willingness to install software.",
-    "No prior AI or agent experience required.",
-    "Optional: API keys for Claude or OpenAI if not using local models; optional spare machine or Raspberry Pi for hosting.",
+    "Laptop with internet; GitHub account.",
+    "Anthropic API key (Claude access) and billing awareness.",
+    "Before Day 1: install Claude Code and Node.js/npm; basic terminal comfort.",
+    "No advanced coding required — emphasis on accessible orchestration for non-developers as well as engineers.",
   ],
   materials: [
-    "Obsidian (free), OpenClaw or equivalent local agent from GitHub, terminal access.",
-    "Local LLMs (optional) or cloud APIs; Telegram/WhatsApp/Slack for messaging interfaces.",
-    "Templates for Customer Insights, Experiment Logs, Decision Records, and agent memory files (see Prompts page).",
+    "Shared Notion or Google Drive workspace; source video link; Claude Forge repository (open-source “milk kit” from cohort materials).",
+    "Curated prompt/skill library (this site’s Prompts page); VS Code or compatible editor.",
+    "Optional: Seattle-specific networking intros (investors, talent) provided by organizers.",
   ],
-  cost: "Typical program fee $500–$1,500 per startup/team (venue, snacks, materials); offer scholarships for underrepresented founders. Cloud API usage is variable.",
+  cost: "Typical program fee $500–$1,500 per startup covering mentors, snacks, and materials; scholarships possible. Sponsorship (Anthropic partners, AWS, local incubators) can offset costs. API usage is variable — track in-session.",
   facilitation:
-    "Led by a facilitator comfortable with Obsidian, Markdown, and local agents; optional guest spots from the Seattle AI community (Meetup, UW).",
-  assessment: "Daily reflections; end-of-week demo of each startup’s vault + agent; peer feedback; optional pre/post surveys.",
+    "1–2 instructors fluent in Claude Code + Claude Forge; optional guest speakers (Seattle AI founders on scaling with agents).",
+  assessment: "Pre/post surveys on time in coding/ops; daily reflections; Day 7 showcases with peer feedback; optional 30-day virtual check-in.",
   seattleVenues: [
-    { name: "WeWork / The Riveter / Impact Hub Seattle", note: "Good Wi‑Fi and breakout areas for hybrid cohorts." },
-    { name: "Peerspace or accelerator venues (e.g. Pioneer Square Labs)", note: "Book screens for vault + agent demos." },
-    { name: "Capitol Hill / SLU maker or event spaces", note: "Evening demos or guest sessions." },
+    { name: "WeWork / The Riveter / Impact Hub Seattle", note: "Reliable Wi‑Fi and breakout rooms for hybrid cohorts." },
+    { name: "Incubator or accelerator space (Pioneer Square, Bellevue partner)", note: "Screens for live Claude Code + Forge demos." },
+    { name: "South Lake Union / Fremont event or co-working", note: "Optional evening mixer (Day 6) with local founders/investors." },
   ],
 } as const;
 
 export const POST_PROGRAM = {
   ongoing: [
-    "Month 1: weekly async check-ins; shared resource list (Seattle AI events, OpenClaw docs, community Discords).",
-    "Expand data sources gradually; schedule monthly “lint” and security review of vaults and agent permissions.",
+    "30-day follow-up virtual check-in; weekly agent audits suggested for month 1.",
+    "Community: local Seattle AI meetup, cohort channel, optional QJC-style peer group.",
   ],
   metrics: [
-    "Pre/post survey on confidence managing company knowledge and data.",
-    "Each team documents insights generated that were not obvious before the week.",
-    "30-day follow-up on continued use of vault + agent (time saved, decisions improved).",
+    "Pre/post survey: hours/week on coding, review, deployment, and ops.",
+    "Concrete outputs: features shipped, tasks automated, LOC or artifacts generated, time saved vs. manual baseline.",
+    "Documented Forge setup: agents, MCPs, slash commands, hooks — with owners.",
   ],
   challenges: [
     {
-      issue: "Sensitive data in one vault",
-      mitigation: "Separate vaults; read-only integrations; minimize cloud upload; redact in cohort demos.",
+      issue: "Context window overload with large agent teams",
+      mitigation: "Lazy-load MCPs; narrow agent scopes; summarize memory files; run shorter pipelines first.",
     },
     {
-      issue: "Agent over-permissioned",
-      mitigation: "Sandbox accounts; confirm before send/post actions; backups before bulk file ops.",
+      issue: "API cost or rate limits",
+      mitigation: "Track usage per team; cache retrieval; batch reviews; use smaller models where appropriate.",
+    },
+    {
+      issue: "Tool failures or flaky MCPs",
+      mitigation: "Fallback paths; logging; human checkpoint before deploy or customer-facing actions.",
     },
     {
       issue: "Adoption after the intensive week",
-      mitigation: "Anchor daily/weekly rituals (morning briefing, Friday review); start with one automation.",
+      mitigation: "Anchor 1–2 weekly rituals (e.g. code review agent, weekly retro); start with one high-ROI workflow.",
     },
   ],
 } as const;
 
+export const ELEVEN_AGENTS = [
+  "Planner",
+  "Architect",
+  "Researcher",
+  "Strategist",
+  "Coder",
+  "Tester",
+  "Code reviewer",
+  "Security reviewer",
+  "Critic / devil’s advocate",
+  "Deployer",
+  "Retro / reflector",
+] as const;
+
 export const CURRICULUM_DAYS: CurriculumDay[] = [
   {
     day: 1,
-    title: "Foundations — DIKW & lifelogging for startups",
+    title: "Foundations — understand the system & setup",
     focus:
-      "Map the DIKW pyramid to startup reality and stand up a minimal Obsidian vault that will hold company + founder lifelog data.",
+      "Break down the source video together, then install Claude Code + Claude Forge and run a minimal agent workflow with basic MCP servers.",
     outcome:
-      "Participants connect the source video’s “feed everything” experiment to business context and leave with a vault skeleton plus a short audit of their data chaos.",
+      "Every participant has a running Forge environment, API keys configured safely, and a successful “hello world” multi-step agent run.",
     objectives: [
-      "Explain Data → Information → Knowledge → Wisdom using startup examples (metrics, interviews, roadmap).",
-      "Audit where data lives today (tools, notes, meetings, feedback) and name lifelogging opportunities.",
-      "Install Obsidian and create a folder structure for Company, Personal/Team, and ingestion.",
+      "Explain how one Claude Code workspace plus Claude Forge orchestrates specialized agents, slash commands, skills, and hooks.",
+      "Describe the “milk kit” idea: pre-packaged agents, 40+ slash commands (e.g. evaluation, implementation, critique, retro), and automation loops.",
+      "Install Claude Code, clone/set up Claude Forge from the cohort GitHub link, and connect simple MCP servers (filesystem, web fetch).",
     ],
     videoIdeas: [
-      "Comprehensive personal/life data fed into a system → for startups: company + founder data as one augmented memory.",
-      "Compound intelligence: scattered tools vs. one queryable layer an agent can read.",
-      "Privacy: local-first and intentional boundaries mirror OpenClaw-style self-hosting values.",
+      "Eleven agents collaborating: planning → build → test → review → deploy with minimal manual glue.",
+      "Slash-command and skill workflows as the productized interface to the stack.",
+      "MCP as the standard way agents reach tools without stuffing everything into context.",
     ],
     practicalSteps: [
-      "Screen the source video (or assigned chapters); debrief: what would “full data” mean for your startup?",
-      "Draw one DIKW chain for your product (e.g. raw events → dashboard → insight → decision).",
-      "Install Obsidian; create vault root and folders: Company/Strategy, Company/Product, Company/Customers, Company/Ops, Company/Finance, Team/Journal, Team/Tasks, Inbox/Imports.",
-      "Add a single note `Team/Journal/YYYY-MM-DD.md` and link it to `Company/Strategy/North-Star.md` (create stub).",
+      "Screen the source video as a cohort (pause for Q&A): orchestration, Forge layout, demo beats.",
+      "Create or verify Anthropic account; generate API key; store in env (never commit secrets).",
+      "Install Claude Code per current docs; verify `node` / `npm` versions.",
+      "Install Claude Forge from the official repository provided in the cohort workspace (one-command or documented steps).",
+      "Configure 1–2 starter MCP servers (e.g. filesystem, fetch) from Forge or MCP catalog.",
+      "Run a simple scripted workflow: e.g. plan stub → implement tiny change in a dummy repo → run tests if present.",
     ],
     morningWorkshop: {
       morning: [
-        "Welcome, cohort agreements (privacy, respect, no pitching other teams’ data).",
-        "Facilitator presents DIKW with startup examples: raw metrics → reports → patterns → strategic bets.",
+        "Welcome, cohort agreements (API spend, no sharing keys, respect for other teams’ repos).",
+        "Facilitator maps video chapters to learning goals: 11 agents, Forge, MCP, full loop.",
       ],
       workshop: [
-        "Small groups: map “data chaos” — list tools and where customer truth actually lives.",
-        "Plenary: 2–3 teams share one lifelogging win they could start this week (e.g. call transcripts, daily founder log).",
+        "Watch key segments; debrief: what would “full automation” mean for your startup this week?",
       ],
     },
     afternoonWorkshop: [
-      "Guided Obsidian install and vault creation on each laptop (Windows/Mac/Linux).",
-      "Pair exercise: exchange folder trees and give one clarity suggestion each.",
+      "Guided install: Claude Code + Forge + MCP on each laptop; facilitator + TA rotate for unblock.",
+      "Pair check: each machine runs one end-to-end “hello” task and logs output.",
     ],
     groupActivity: [
-      "Optional: build a shared glossary note `Company/Product/Glossary.md` for terms everyone will reuse in prompts.",
+      "Optional: each startup states one workflow they want automated by Day 7 (one sentence).",
+    ],
+    securitySession: [
+      "API keys in `.env` / OS keychain; never commit secrets; use `.gitignore`; rotate if exposed.",
     ],
     homework: [
-      "Export or copy 1–2 weeks of existing material (notes, email summaries, metrics screenshots) into Inbox/Imports as Markdown or PDF.",
-      "Write a 1-page reflection: “What if my AI knew everything material about my startup?” — include worries and wins.",
+      "Re-run the video’s example automation on a dummy project; note friction and questions.",
     ],
-    eveningOptional: "Slack/Discord: post one screenshot of your vault outline (blur secrets).",
+    eveningOptional: "Office hours: stuck installs, API billing questions.",
     facilitatorNotes: [
-      "If Obsidian is blocked on a machine, use plain Markdown folders in Git and sync later.",
-      "Keep Day 1 completion bias high: perfect taxonomy is not the goal.",
+      "Pin exact Forge commit and Claude Code versions in cohort doc to avoid drift.",
+      "If Forge repo URL changes, update cohort materials once — avoid live URL hunting in class.",
     ],
     deliverables: [
-      "Working vault with agreed top-level folders and at least three interlinked notes.",
-      "Completed data-audit list (bullet list is fine) stored in `Company/Ops/Data-Audit.md`.",
+      "Working Claude Code + Forge + baseline MCP; screenshot or log of successful hello workflow.",
     ],
   },
   {
     day: 2,
-    title: "Building the second brain — capture & organize",
+    title: "Core agents & prompting mastery (building the team)",
     focus:
-      "Use Obsidian plugins and structure (PARA/MAPS-style) so capture is easy and notes stay findable before the agent plugs in.",
+      "Map the eleven agent roles to real startup tasks; craft domain prompts; activate a small multi-agent team on one end-to-end task.",
     outcome:
-      "A living knowledge base with templates and a few automated captures; customer interview material begins to live as atomic notes.",
+      "Each startup runs 3–5 agents together on a realistic task (e.g. landing section + review) and drafts custom slash/skills ideas.",
     objectives: [
-      "Enable core plugins: Dataview, Tasks, Calendar, Excalidraw, Advanced URI (as appropriate).",
-      "Set up daily notes template and tagging or folder conventions the whole team can follow.",
-      "Create three startup templates: Customer Insights, Experiment Log, Decision Record.",
+      "Know the eleven roles: planner, architect, researcher, strategist, coder, tester, code reviewer, security reviewer, critic, deployer, retro/reflector.",
+      "Write high-quality system prompts for the startup’s domain (e.g. SaaS analytics feature, API integration).",
+      "Run a collaborative task: e.g. researcher + strategist + coder producing and reviewing a small artifact.",
     ],
     videoIdeas: [
-      "Feeding data continuously → browser clipper, transcripts, exports mirror “all my life data” but for product and customers.",
-      "Atomic notes as the unit the agent will reason over later.",
+      "Agent “roles” as stable personas vs. one-off chat — consistency beats clever one-shots.",
+      "Devil’s advocate and security as mandatory gates before merge or deploy.",
     ],
     practicalSteps: [
-      "Turn on community plugins safely; document which plugins the cohort standardizes on in `Team/Tasks/Obsidian-Plugins.md`.",
-      "Configure daily note template with sections: Priorities, Log, Customer signals, Links.",
-      "Add Obsidian Web Clipper or equivalent; demo saving one competitor page to Inbox.",
-      "Set up email forwarding or a “log” mailbox rule that ends in Markdown or a paste bucket note.",
-      "Import at least one real customer interview as atomic notes under `Company/Customers/Interviews/`.",
+      "Facilitator presents each agent with 1 startup example and 1 anti-pattern.",
+      "Teams write a short “company context” block (mission, stack, constraints) for prompts.",
+      "Exercise: activate 3–5 agents on one task (e.g. generate + review a React component or Markdown landing section).",
+      "Group brainstorm: map each startup’s bottleneck to an agent sequence.",
     ],
     morningWorkshop: {
       morning: [
-        "Deep dive: linking, backlinks, and why graph view matters for spotting gaps.",
-        "Demo: PARA or MAPS adapted — Projects, Areas, Resources, Archive mapped to startup folders.",
+        "Deep dive: 11 agents with Forge defaults; how to invoke and chain.",
+        "Live demo: video-style build step on a sample repo.",
       ],
       workshop: [
-        "Build the three templates together; save under `Templates/` and assign hotkeys if desired.",
+        "Teams draft system prompts; facilitator reviews 2–3 live.",
       ],
     },
     afternoonWorkshop: [
-      "Lifelogging practicals: calendar export, Otter.ai or similar → export to Markdown into `Company/Customers/Calls/`.",
-      "Voice memo → text workflow documented in `Team/Tasks/Capture-Playbook.md`.",
+      "Hands-on: first multi-agent end-to-end task per startup on their own repo or sandbox.",
+      "Peer feedback: 10 min per team — clarity of prompts and agent handoffs.",
     ],
     groupActivity: [
-      "Peer vault reviews (15 min each in trios): navigation, naming, one improvement suggestion per vault.",
+      "Pitch current bottleneck; group suggests agent lineup and order (whiteboard or shared doc).",
     ],
     homework: [
-      "Capture today’s activities in daily note plus three concrete startup data points (metrics, quotes, decisions).",
-      "Add two new atomic notes from real company data and link them to Strategy or Product.",
+      "Document 3 custom slash commands or skills tailored to your product (stub text is fine).",
     ],
-    eveningOptional: "Share one capture automation you will keep vs. one you will drop (scope discipline).",
+    eveningOptional: "Async: post one prompt snippet that worked and one that failed.",
     facilitatorNotes: [
-      "Have a canned public interview transcript if a team lacks one.",
-      "Watch plugin overload — fewer plugins, clearer rules.",
+      "Keep tasks small enough to finish in session — scope is the main failure mode.",
     ],
     deliverables: [
-      "Templates live and used at least once each.",
-      "`Team/Tasks/Capture-Playbook.md` with steps your team will actually follow.",
+      "Completed small E2E task with agent trace or log; `SKILLS_OR_SLASH.md` stub with 3 ideas.",
     ],
   },
   {
     day: 3,
-    title: "Installing & configuring OpenClaw (or equivalent local agent)",
+    title: "MCP tools & integration (connecting agents to the real world)",
     focus:
-      "Run a self-hosted agent that can read the vault and accept messages — the core replication of the video’s experiment for the company.",
+      "Install and configure MCP servers; practice lazy-loading; optionally sketch a custom MCP for the startup’s stack.",
     outcome:
-      "Agent runs locally (or on a team server), reads Markdown context, and answers basic startup questions with stated limitations.",
+      "At least two MCPs configured per team (e.g. Git, DB, API, Notion, Stripe) and one research→plan→code→test run using tools.",
     objectives: [
-      "Install OpenClaw per current docs; connect filesystem access to the Obsidian vault path.",
-      "Configure at least one messaging surface (Telegram or WhatsApp or Slack) for quick tests.",
-      "Author startup context files the agent loads as memory (mission, ICP, roadmap, risks).",
+      "Explain MCP: standard tool interface, multiple servers, least privilege.",
+      "Install examples: Git integration, read-only DB or API, web fetch, transcript or doc tools as needed.",
+      "Understand lazy-loading and context discipline for multi-agent runs.",
     ],
     videoIdeas: [
-      "Personal assistant over your own data → agent over vault + calendars + repos.",
-      "Local/self-hosted emphasis aligns with privacy-aware lifelogging.",
+      "Recommended MCP categories from ecosystem: memory, fetch, repos, calendars — pick what matches revenue work.",
+      "Avoid “everything connected at once” — staged rollout.",
     ],
     practicalSteps: [
-      "Follow official install path for the cohort’s OS; verify version and health check commands.",
-      "Point agent at vault root; test read of `Company/Strategy/North-Star.md`.",
-      "Create `Agent/Memory/` with `company-context.md`, `icp.md`, `roadmap.md` — short, updated weekly.",
-      "Connect messaging; send test prompts: “Summarize last week’s customer feedback” (from notes you seeded).",
-      "Optional: read-only calendar and GitHub issues integration; document tokens in a secrets process, not in the vault.",
+      "Morning: MCP architecture whiteboard; 7+ recommended types (facilitator list from current catalog).",
+      "Install 2 MCPs per team from a curated list; verify with a smoke prompt.",
+      "Exercise: lazy-load pattern — only attach heavy tools when a sub-task needs them.",
+      "Optional build track: stub a custom MCP (e.g. internal JSON endpoint, Stripe read-only, Notion page fetch) using cohort template.",
     ],
     morningWorkshop: {
       morning: [
-        "Live install walkthrough with troubleshooting table (facilitator + TA).",
-        "Show successful end state: message in → grounded reply citing note titles.",
+        "MCP deep dive with Forge examples; security: tokens, scopes, read-only defaults.",
       ],
       workshop: [
-        "Teams install; facilitator rotates for unblock. Each team posts “agent up” in cohort chat when basic Q&A works.",
+        "Teams install first MCP; facilitator troubleshoots common errors (path, auth, version).",
       ],
     },
     afternoonWorkshop: [
-      "Prompting basics: system vs. user, keeping memory files concise, when to paste vs. when to rely on paths.",
-      "Exercise: each team runs 5 prompts against their own vault data (no cross-team data).",
+      "Group challenge: “Research competitor → plan feature → generate code → run tests” using connected tools.",
+      "Document failure modes in team runbook.",
     ],
-    securitySession: [
-      "Threat model: leaked tokens, accidental public repos, agent sending email without confirmation.",
-      "Mitigations: separate test accounts, read-only scopes, backup vaults before experiments, explicit human approval for destructive actions.",
+    groupActivity: [
+      "Teams share which MCPs they chose and one surprise limitation.",
     ],
     homework: [
-      "Run the agent for 1–2 hours total; keep `Team/Journal/agent-session-log.md` with prompts, failures, and one “aha.”",
+      "Set up at least 2 MCPs tailored to your stack; note credentials handling.",
     ],
-    eveningOptional: "Post one surprise limitation (e.g. context length, file not found) and how you worked around it.",
+    eveningOptional: "Security office hour: token storage, CI secrets.",
     facilitatorNotes: [
-      "If OpenClaw is unstable for someone, allow an alternate local agent that can read folders + chat — same learning goals.",
-      "Never share API keys on screen; use env files and .gitignore.",
+      "No live customer PII in shared demos — use synthetic data.",
     ],
     deliverables: [
-      "Agent reachable from at least one interface; evidence in log file.",
-      "`Agent/Memory/` populated with minimum company context pack.",
+      "`MCP.md` listing servers, purpose, and env vars (redacted).",
     ],
   },
   {
     day: 4,
-    title: "Turning data into information & knowledge",
+    title: "Full pipeline execution (decision-to-delivery loop)",
     focus:
-      "Use Dataview queries and the agent together so raw notes become recurring reports and identifiable themes.",
+      "Run Forge’s memory-backed pipeline end-to-end (e.g. evaluate → implement → critique → retro) on a real startup task.",
     outcome:
-      "Teams move from ad hoc chat to repeatable extractions: weekly summaries, theme lists, and a simple knowledge graph of problems ↔ solutions ↔ metrics.",
+      "Each team completes one meaningful pipeline on a live task with human decisions at the right gates; baseline time estimate vs. manual.",
     objectives: [
-      "Write at least one Dataview query that lists experiments, customers, or decisions.",
-      "Batch-process transcripts/notes with the agent to tag themes and risks.",
-      "Define sub-agent or prompt “hats” (e.g. Product Analyst, Customer Wisdom).",
+      "Navigate slash-command flow aligned to the video (court/evaluate, implement, critique, retro as your Forge labels them).",
+      "Apply to real work: feature, bug, internal tool, or MVP module — not toy-only.",
+      "Practice live debugging and peer review when agents disagree or fail.",
     ],
     videoIdeas: [
-      "Pattern recognition across time — the payoff of having fed the system enough structured text.",
-      "Graph view + LLM: complementary ways to see structure.",
+      "Human role = decisions + taste; agents = throughput and consistency.",
+      "Iteration beats one-shot perfection — retro captures learning for the next run.",
     ],
     practicalSteps: [
-      "Create `Company/Product/Experiments.md` with Dataview pulling from experiment notes.",
-      "Run a structured prompt: “From these interview notes, list top 5 themes and evidence quotes.”",
-      "Build a small mermaid or linked map: Problem → Current approach → Metric → Owner.",
-      "Add two custom prompt files under `Agent/Prompts/`: `product-analyst.md` and `customer-wisdom.md`.",
+      "Morning: facilitator demos full pipeline on sample repo with timers.",
+      "Each team selects a live task; run the full orchestra with documented human checkpoints.",
+      "Measure: start/end time; number of agent round-trips; what you would have done manually.",
+      "Afternoon: peer debugging + short retro per team.",
     ],
     morningWorkshop: {
       morning: [
-        "DIKW in action: differentiate a dashboard (information) from a decision memo (knowledge).",
-        "Facilitator demos Dataview on sample data.",
+        "Pipeline mechanics: memory files, where state lives, how to reset a bad run.",
       ],
       workshop: [
-        "Teams write one Dataview and one agent-assisted theme extraction on their own notes.",
+        "Teams kick off live tasks; facilitators circulate.",
       ],
     },
     afternoonWorkshop: [
-      "Knowledge graph exercise: link problems, solutions, and metrics across three real notes.",
-      "Optional: Excalidraw canvas for roadmap storyboard stored in vault.",
+      "Continue pipeline; integrate feedback; prep short learnings for group share.",
     ],
     groupActivity: [
-      "Each startup shares one non-obvious insight the system surfaced (2 min each).",
+      "2-minute share: one win, one failure, one change for tomorrow.",
     ],
     homework: [
-      "Ingest older artifacts (pitch deck outline, failed experiment); query for lessons and gaps.",
+      "Complete one full pipeline on a meaningful project piece; record hours saved vs. manual estimate.",
     ],
-    eveningOptional: "Share one query or prompt snippet that will become a weekly ritual.",
+    eveningOptional: "Optional: facilitator async review of stuck repos.",
     facilitatorNotes: [
-      "If Dataview is too heavy for a team, fall back to agent-only summarization with strict filenames.",
+      "If a team has no suitable repo, provide a standard open-source fork for the exercise.",
     ],
     deliverables: [
-      "One working Dataview (or documented alternative).",
-      "`Agent/Prompts/` contains two role-specific prompt files in use.",
+      "Merged or PR-ready artifact where applicable; written retro notes; rough time-saved estimate.",
     ],
   },
   {
     day: 5,
-    title: "Generating wisdom & automations",
+    title: "Advanced automation & scaling (multi-agent teams + hooks)",
     focus:
-      "Chain steps: multi-step reasoning, briefings, backlog prioritization, and risk scans — always with human checkpoints.",
+      "Parallelism, feedback loops between agents, automation hooks (daily review, content, leads), and CI/CD touchpoints.",
     outcome:
-      "Two or three automations or playbooks (e.g. morning briefing, weekly customer themes) that teams will run next week.",
+      "2–3 documented automated workflows (triggers, owners, rollback) including at least one recurring or hook-based ritual.",
     objectives: [
-      "Design multi-step workflows the agent can run with tools/skills available in your stack.",
-      "Apply to strategic planning, meeting prep, and opportunity/risk detection.",
-      "Document failure modes and when to escalate to humans.",
+      "Patterns: parallel agents, critic loops, merge when tests + security pass.",
+      "Hooks: scheduled or event-driven agent tasks (e.g. on PR open, nightly lint summary).",
+      "Map to Seattle realities: AWS-heavy stacks, hiring pipelines, basic compliance awareness — without legal advice.",
     ],
     videoIdeas: [
-      "From reactive Q&A to proactive briefings — “wisdom” as timely synthesis, not one-off clever chat.",
+      "Scaling agent throughput without losing accountability — logs and owners.",
+      "CI/CD as the deployer’s dance partner, not a black box.",
     ],
     practicalSteps: [
-      "Draft a morning briefing template: metrics snippet + calendar + open GitHub issues + top risks from notes.",
-      "Run a prioritization exercise: backlog items in Markdown → agent suggests top 3 with rationale tied to notes.",
-      "Simulate a decision: “If we delay feature X, what does our own data say?” — cite note paths.",
-      "Optional guest (15–20 min): local founder on Obsidian/agents — Q&A.",
+      "Morning: collaboration patterns from Forge docs and video.",
+      "Build: hook or scheduled workflow (e.g. daily code review summary, weekly competitor scan).",
+      "Optional: wire a deploy or CI step with explicit human approval for production.",
+      "Group workshop: stress-test another team’s system with adversarial inputs (safe scope).",
     ],
     morningWorkshop: {
       morning: [
-        "Advanced patterns: tool use boundaries, idempotent scripts, logging every automation run.",
+        "Lecture + demos: hooks, parallelism, when not to automate.",
       ],
       workshop: [
-        "Teams build 2–3 automations or checklists (manual + agent-assisted counts).",
+        "Teams implement second and third workflows.",
       ],
     },
     afternoonWorkshop: [
-      "Startup applications: strategy memo from vault, risk register refresh, investor update draft outline.",
-      "Red-team: what could go wrong if the agent is wrong? Add verification steps.",
+      "Cross-team stress tests; fix brittle prompts or MCP calls.",
+    ],
+    groupActivity: [
+      "Share builds; document operational risks.",
     ],
     homework: [
-      "Run at least one automation in a real workflow tomorrow morning; log results in `Team/Journal/`.",
+      "Expand to 2–3 automated workflows with owners and triggers.",
     ],
-    eveningOptional: "Optional social: cohort dinner — no work talk required.",
+    eveningOptional: "Optional social — no homework required.",
     facilitatorNotes: [
-      "Discourage email-send automation without explicit confirmation UI.",
+      "Discourage unattended production deploys without approval gates.",
     ],
     deliverables: [
-      "`Team/Tasks/Automations.md` listing each automation, trigger, owner, and rollback.",
-      "One strategic paragraph written by the system + human edit tracked in git or note history.",
+      "`AUTOMATIONS.md` with triggers, frequency, owner, rollback.",
     ],
   },
   {
     day: 6,
-    title: "Integration, iteration & team scaling",
+    title: "Optimization, evaluation & iteration (making agents reliable)",
     focus:
-      "Make the system durable: daily/weekly rituals, troubleshooting, and how co-founders share read-only or branched vaults.",
+      "LLM-as-judge and human rubrics; fix context and hallucinations; memory/persistence; cost and security tuning; Day 7 demo prep.",
     outcome:
-      "A realistic operating model: who updates what, how sync works, and how multiple prompts/agents coexist without chaos.",
+      "Teams improve reliability of earlier builds, add persistence where needed, and rehearse a 5-minute showcase.",
     objectives: [
-      "Combine Obsidian + agent into a daily standup and weekly review checklist stored in the vault.",
-      "Plan read-only sharing, Git sync, or export for advisors without leaking secrets.",
-      "Run a mock “startup council” using agents to argue positions on a real challenge.",
+      "Evaluate agent outputs with simple rubrics and spot checks.",
+      "Tighten memory so agents “remember” across sessions within policy.",
+      "Optimize: batch calls, model choice, caching; review API dashboards.",
     ],
     videoIdeas: [
-      "Scaling from solo lifelog to team memory — permissions and narrative consistency.",
+      "Reliability as product — especially for customer-facing or revenue workflows.",
+      "Retro agent closes the loop: what to change in prompts and tools next week.",
     ],
     practicalSteps: [
-      "Troubleshoot: large files, sync conflicts, slow local models — capture fixes in `Team/Tasks/Runbook.md`.",
-      "Define multi-agent split if useful: Ops agent vs. Product agent — separate memory files and scopes.",
-      "Mock council: one company presents a challenge; others use agents with only public notes + that company’s shared excerpt.",
-      "Refine dangerous integrations (browser, send) only with guardrails documented.",
+      "Morning: evaluation methods; facilitator demo of judge prompt on a sample output.",
+      "Afternoon: fix issues from Days 2–5; add/adjust memory files; run security pass.",
+      "Demo prep: 5-minute storyboard per team — problem, setup, demo, metrics.",
+      "Evening optional: informal mixer with local founders/investors (organizer-hosted).",
     ],
     morningWorkshop: {
       morning: [
-        "Full stack review: vault hygiene, agent logs, backup strategy.",
+        "Metrics that matter: accuracy, latency, cost, human edit distance.",
       ],
       workshop: [
-        "Teams update runbooks and assign owners for memory files.",
+        "Teams iterate on weakest workflow; facilitator office hours.",
       ],
     },
     afternoonWorkshop: [
-      "Mock startup council (facilitator timeboxed).",
-      "Optional: pair on Git remote for vault with `.gitignore` for secrets.",
+      "Dry-run demos; timing feedback.",
     ],
     groupActivity: [
-      "Structured debate: agents + humans — decision summary note archived in `Company/Strategy/Decisions/`.",
+      "Peer rubric: rate another team’s demo clarity (not product quality).",
     ],
     homework: [
-      "Run the full stack for a full working day; fix one pain point; prep 5–10 min demo for Day 7.",
+      "Polish demo; ensure repo/docs are presentable; redact secrets.",
     ],
-    eveningOptional: "Dry-run demo with a teammate; time the flow.",
+    eveningOptional: "Seattle networking mixer (optional).",
     facilitatorNotes: [
-      "Reiterate consent and data boundaries before any cross-team use of notes.",
+      "Confirm consent before photos or quotes for marketing.",
     ],
     deliverables: [
-      "`Team/Tasks/Runbook.md` with rituals and escalation.",
-      "Demo script outline: `Team/Tasks/Demo-Outline.md`.",
+      "Updated runbook; demo script; checklist for Day 7 AV.",
     ],
   },
   {
     day: 7,
-    title: "Demo, reflection & next steps",
+    title: "Deployment, showcase & next steps (sustain the leverage)",
     focus:
-      "Show working systems, capture lessons, and lock a 30-day roadmap for vault + agent use.",
+      "Final polish, autonomous operation on repo or ops where appropriate, showcases, measurement, and alumni plan.",
     outcome:
-      "Each team leaves with peer feedback, a clear next month plan, and shared resources for the Seattle ecosystem.",
+      "Each startup presents 10–15 minutes with metrics; leaves with action plan, resources, and optional certificate; 30-day follow-up scheduled.",
     objectives: [
-      "Present vault + agent in action with a before/after story.",
-      "Reflect on privacy, surprise, and business impact.",
-      "Agree on cohort alumni touchpoints and optional next intake.",
+      "Deploy or operationalize agent system with clear ownership.",
+      "Report: LOC or artifacts, tasks automated, time saved, lessons vs. video expectations.",
+      "Close with Seattle resources (e.g. Madrona, AI2, accelerators) and community continuity.",
     ],
     videoIdeas: [
-      "Closing the loop on the opening experiment: what did “the AI knowing everything” actually change?",
+      "Sustaining leverage: weekly audits, not one-week novelty.",
+      "How your stack differed from the video — that’s expected.",
     ],
     practicalSteps: [
-      "Demos (5–10 min each): structure — problem → data fed → agent output → decision or automation.",
-      "Peer feedback rounds: one strength, one risk, one suggestion.",
-      "Group reflection: surprises, privacy lessons, ROI hypotheses.",
-      "Workshop: 30-day roadmap — weekly reviews, expanding data sources, measuring time saved and insights.",
-      "Share resources: local meetups, advanced OpenClaw docs, responsible AI norms.",
-      "Closing: certificates, photo, optional next cohort teaser.",
+      "Morning: final fixes; ensure README and Forge config are reproducible.",
+      "Afternoon: showcases (10–15 min each) + structured feedback.",
+      "Measure: agree on 1–2 KPIs for the next 30 days per team.",
+      "Closing: certificates, prompt/Forge resource pack, photo/release forms, 30-day check-in on calendar.",
+      "Post-program: facilitator sends summary and optional guest intros.",
     ],
     morningWorkshop: {
       morning: [
-        "Demo block with strict timer; facilitator keeps energy and notes common themes for a shared FAQ note.",
+        "Buffer for demos; AV checks; backup video if live demo fails.",
       ],
       workshop: [
-        "Short synthesis: facilitator captures cohort FAQ into `Wiki/FAQ-from-cohort.md` (or shared vault).",
+        "Short facilitator synthesis: cohort themes and FAQ.",
       ],
     },
     afternoonWorkshop: [
-      "Reflection and roadmap session; optional sponsor remarks.",
+      "Showcases; feedback rounds; action plans.",
     ],
     homework: [
-      "Optional: send facilitator one metric and one testimonial line for future marketing (with approval).",
+      "Optional: one metric + one testimonial line for organizers (with approval).",
     ],
-    eveningOptional: "Celebrate offline — no homework.",
+    eveningOptional: "Celebrate — no required homework.",
     facilitatorNotes: [
-      "Record consent before capturing testimonials or photos.",
-      "Export template pack and prompt list for alumni.",
+      "Keep strict time boxes; one person watches clock.",
+      "Export shared prompt library and Forge customizations to alumni drive.",
     ],
     deliverables: [
-      "Demo completed; roadmap note `Company/Strategy/30-Day-Roadmap.md` per team.",
-      "Optional: signed certificate or cohort photo release.",
+      "Showcase completed; written next-step plan; optional certificate.",
     ],
   },
 ];

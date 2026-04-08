@@ -5,7 +5,7 @@ export type CurriculumDay = {
   /** One-line result participants should achieve by end of day */
   outcome: string;
   objectives: string[];
-  /** Ideas tied to the source video (lifelogging, feeding data to a local agent) */
+  /** Concepts tied to the source video (Claude Code, Forge, 11 agents, MCP, slash commands) */
   videoIdeas: string[];
   /** Ordered checklist the cohort executes in session or async */
   practicalSteps: string[];

@@ -4,7 +4,7 @@ import { CopyButton } from "@/components/copy-button";
 import { CLAUDE_MD_TEMPLATE, PROMPTS } from "@/lib/prompts";
 
 export const metadata = {
-  title: "Prompts & memory templates",
+  title: "Prompts & Forge templates",
 };
 
 export default function PromptsPage() {
@@ -18,11 +18,11 @@ export default function PromptsPage() {
         <span className="text-zinc-600">Prompts</span>
       </div>
 
-      <h1 className="mt-6 text-3xl font-semibold text-white sm:text-4xl">Vault + agent prompt library</h1>
+      <h1 className="mt-6 text-3xl font-semibold text-white sm:text-4xl">Claude Code + Forge prompt library</h1>
       <p className="mt-4 max-w-3xl text-sm leading-relaxed text-zinc-400">
-        Use these with Claude, your local LLM, or agent “skills” — aligned to the{" "}
-        <strong className="text-zinc-200">Obsidian + OpenClaw-style</strong> stack in this curriculum. Edit paths, tone,
-        and permissions for your team.
+        Copy-paste starters for multi-agent runs, MCP reviews, critiques, retros, and cost checks — aligned to{" "}
+        <strong className="text-zinc-200">Claude Code + Claude Forge</strong> in this curriculum. Edit stack details, slash
+        command names, and permissions for your team.
       </p>
 
       <section className="mt-10 rounded-2xl border border-white/10 bg-zinc-900/50 p-6">

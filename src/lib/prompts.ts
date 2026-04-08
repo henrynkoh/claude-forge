@@ -1,104 +1,105 @@
-/** Copy-paste prompts for Obsidian vault + local agent workflows. Teams should adapt tone, paths, and safety rules. */
+/** Copy-paste prompts for Claude Code + Claude Forge. Teams should adapt tone, repo layout, and safety rules. */
 
-export const CLAUDE_MD_TEMPLATE = `## Startup second brain + local agent (project context)
+export const CLAUDE_MD_TEMPLATE = `## Claude Forge + startup context (project memory)
 
-You assist an early-stage startup using an Obsidian/Markdown vault and a self-hosted agent (e.g. OpenClaw) with read access to agreed paths.
+You work inside a Claude Code workspace with Claude Forge: multiple specialized agents, slash commands, skills, hooks, and MCP tools.
 
 ### Your job
-- Respect folder boundaries: \`Company/\`, \`Team/\`, \`Agent/Memory/\`, \`Inbox/Imports/\`. Do not invent facts not supported by notes.
-- When asked to summarize themes, cite note titles or paths so humans can verify.
-- Prefer local-first operations; flag any step that would send data externally.
-- For actions that change the world (email, payments, posts), require explicit human confirmation in the runbook.
+- Respect the repo’s AGENTS.md / Forge conventions and which agents are allowed to write vs. review.
+- Cite file paths and commands when suggesting changes; do not invent APIs or env vars not in the repo.
+- For deploy, billing, or customer data: require explicit human confirmation and least-privilege MCP scopes.
 
-### Memory files (keep short; update weekly)
-- \`Agent/Memory/company-context.md\` — mission, stage, constraints.
-- \`Agent/Memory/icp.md\` — ideal customer, pain, buying motion.
-- \`Agent/Memory/roadmap.md\` — now / next / later with owners.
+### Company context (keep short; update weekly)
+- Mission, stage, ICP, stack, and “out of scope” areas.
+- Where secrets live (env only) — never echo tokens.
 
 ### Style
-- Concise bullets; link to \`Company/\` notes with \`[[wikilinks]]\` or paths.
-- Call out gaps: “We do not have evidence for X in the vault.”
+- Concise bullets; separate plan vs. implementation vs. test vs. review.
+- Call out uncertainty and what to verify in staging.
 
 ### Safety
-- Never exfiltrate secrets. Redact in demos. Use .gitignore for tokens and env files.
+- Redact in demos. .gitignore for .env. Rotate keys if leaked.
 `;
 
 export type PromptItem = { id: string; title: string; body: string };
 
 export const PROMPTS: PromptItem[] = [
   {
-    id: "agent-memory-refresh",
-    title: "Weekly memory refresh (Agent/Memory)",
-    body: `Scan Company/Strategy, Company/Product, and Company/Customers for changes in the last 7 days.
+    id: "forge-project-bootstrap",
+    title: "Forge project bootstrap (AGENTS.md)",
+    body: `We are a Seattle-area startup using Claude Forge in this repo.
 
-Update Agent/Memory/company-context.md, icp.md, and roadmap.md to stay under ~400 words each.
+Summarize:
+1) Recommended agent lineup for our stack: [LIST: e.g. Next.js, Postgres, Stripe].
+2) Which slash commands to use first this week (/court or evaluate, /implement, /critique, /retro — use our Forge’s exact names).
+3) Three MCP servers to add in phase 1 vs. phase 2 and why.
 
-Output: a bullet list of what you changed and what remains uncertain.`,
+Output: bullet list + a one-paragraph “rules of engagement” for humans.`,
   },
   {
-    id: "customer-themes",
-    title: "Extract themes from interview notes",
-    body: `You have read-only access to Markdown notes under Company/Customers/Interviews/.
+    id: "multi-agent-feature",
+    title: "Multi-agent feature slice (research → plan → code → test)",
+    body: `Goal: [FEATURE IN ONE SENTENCE].
 
-Task:
-1) List the top 5 recurring themes with short evidence quotes (note title + line).
-2) Flag contradictions between interviews.
-3) Suggest 3 experiments to validate the strongest theme.
+Use agents in order: researcher → strategist → architect → coder → tester → code reviewer → security reviewer.
 
-If the vault lacks interviews, say so and propose a minimum capture template.`,
+For each handoff, list: inputs, outputs, and what the human must approve before the next agent runs.
+
+End with a PR title and test checklist.`,
   },
   {
-    id: "weekly-briefing",
-    title: "Morning briefing from vault + calendar summary (paste)",
-    body: `Paste: (1) today’s calendar text, (2) open GitHub issues titles, (3) last 5 lines from Team/Journal.
+    id: "slash-critique-pass",
+    title: "Critique pass after /implement",
+    body: `We just ran /implement on branch [BRANCH].
 
-Produce a 200-word briefing: priorities, risks, one customer insight from notes, one ask for a teammate.`,
+Ask the critic + code reviewer agents to:
+1) List top 5 risks (correctness, security, UX).
+2) Suggest minimal follow-up diffs — no big rewrite.
+3) Flag anything that should not merge without human review.
+
+Reference file paths only.`,
   },
   {
-    id: "risk-scan",
-    title: "Roadmap risk scan",
-    body: `Using Company/Product/roadmap notes and Agent/Memory/roadmap.md, list:
-- Top 3 delivery risks
-- Top 3 market risks
-- One mitigation each that references an existing vault note
+    id: "retro-session",
+    title: "Retro after a pipeline run (/retro)",
+    body: `Summarize the last full pipeline run:
+- Task, time elapsed, agents invoked, MCPs used.
+- What worked vs. what failed (tools, prompts, context).
+- Three concrete changes for next run (prompt, skill, hook, or MCP).
 
-If evidence is missing, mark the risk as "unverified" and name the note to create.`,
+Keep under 300 words; actionable bullets.`,
   },
   {
-    id: "decision-record",
-    title: "Decision record stub",
-    body: `Create a Decision Record for: [DECISION].
+    id: "mcp-scope-review",
+    title: "MCP scope & token review",
+    body: `We plan to add MCP servers: [LIST].
 
-Include: context, options considered, decision, consequences, review date, owner.
+For each: data touched, read vs. write, blast radius if wrong, and whether production is allowed.
 
-Link to related Customer insights, Experiments, and Metrics notes with [[wikilinks]].`,
+Refuse any step that exposes customer PII to unnecessary third parties.`,
   },
   {
-    id: "dataview-helper",
-    title: "Dataview query starter (experiments)",
-    body: `Obsidian Dataview: list all notes under "Company/Product/Experiments" with fields status, owner, and end date.
+    id: "hook-daily-review",
+    title: "Hook: daily PR / diff review",
+    body: `Design a hook (schedule or event) that runs code reviewer + security reviewer on new PRs or nightly on main.
 
-Adapt table columns to our frontmatter keys. If frontmatter is missing, suggest a minimal schema.`,
+Include: trigger, agents, exit criteria, and what happens on failure (Slack message template, no auto-merge).`,
   },
   {
-    id: "subagent-product-analyst",
-    title: "Sub-agent prompt: Product Analyst",
-    body: `Role: Product Analyst for this vault only.
+    id: "llm-judge-rubric",
+    title: "LLM-as-judge rubric (quick)",
+    body: `Given agent output below, score 1–5 on: correctness, relevance, safety, concision.
 
-Rules:
-- Cite paths for every claim.
-- Separate facts from hypotheses.
-- End with three open questions for the founder.
+Output: scores, one paragraph rationale, and whether a human must intervene before ship.
 
-Question: [YOUR QUESTION]`,
+--- OUTPUT ---
+[PASTE HERE]`,
   },
   {
-    id: "security-review",
-    title: "Automation security review",
-    body: `We plan to automate: [DESCRIBE].
+    id: "cost-usage-check",
+    title: "API usage & cost sanity check",
+    body: `From our Anthropic usage pattern (paste or describe): daily agent runs, approximate tokens.
 
-List: data touched, blast radius if wrong, confirmation gates, rollback, and what we log.
-
-Refuse steps that send external comms without human approval.`,
+Suggest: batching, smaller model for triage, caching retrieval, and when to stop autonomous loops.`,
   },
 ];
