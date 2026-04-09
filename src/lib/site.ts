@@ -1,7 +1,7 @@
 /** Source: “Claude Code 실전 강의 — AI 에이전트 11개가 알아서 일한다” (11-agent practical lecture). */
 export const SOURCE_VIDEO_URL = "https://www.youtube.com/watch?v=rSvpKOyaefU" as const;
 
-export const SITE_NAME = "Seattle Claude Forge Startup Week" as const;
+export const SITE_NAME = "Rental Management Hub" as const;
 
 /** Set `NEXT_PUBLIC_GITHUB_REPO_URL` in `.env.local` (e.g. `https://github.com/you/seattle-startup-openclaw-week`). */
 export function getGithubRepoUrl(): string {
