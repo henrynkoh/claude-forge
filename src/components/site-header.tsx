@@ -5,6 +5,8 @@ import { SITE_NAME } from "@/lib/site";
 
 const links = [
   { href: "/", label: "Home" },
+  { href: "/dashboard", label: "Rental HQ" },
+  { href: "/rentals", label: "Properties" },
   { href: "/curriculum", label: "Program" },
   { href: "/curriculum/day/1", label: "Day 1" },
   { href: "/prompts", label: "Prompts" },

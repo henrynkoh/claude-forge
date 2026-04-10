@@ -160,6 +160,23 @@ export default function HomePage() {
                       Prompt library
                     </Link>
                   </div>
+                  <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+                    <Link
+                      href="/dashboard"
+                      className="font-medium text-teal-300 underline-offset-4 transition hover:text-teal-200 hover:underline"
+                    >
+                      Rental HQ dashboard
+                    </Link>
+                    <span className="text-zinc-600" aria-hidden>
+                      ·
+                    </span>
+                    <Link
+                      href="/rentals"
+                      className="font-medium text-teal-300 underline-offset-4 transition hover:text-teal-200 hover:underline"
+                    >
+                      Full property registry
+                    </Link>
+                  </div>
                 </div>
                 <div className="grid gap-3 sm:grid-cols-2 lg:col-span-5 lg:grid-cols-1">
                   <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-teal-500/20 to-zinc-900/60 p-5 shadow-lg shadow-teal-500/5 transition hover:-translate-y-0.5 hover:border-teal-400/40 hover:shadow-teal-500/15">

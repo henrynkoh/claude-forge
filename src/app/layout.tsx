@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Link from "next/link";
 
 import { SiteHeader } from "@/components/site-header";
 import { SITE_DISCLAIMER } from "@/lib/disclaimer";
@@ -40,8 +41,16 @@ export default function RootLayout({
         <SiteHeader />
         <div className="flex-1">{children}</div>
         <footer className="border-t border-white/10 bg-zinc-950 py-8">
-          <div className="mx-auto max-w-5xl px-4 text-xs leading-relaxed text-zinc-500 sm:px-6">
-            <p>{SITE_DISCLAIMER}</p>
+          <div className="mx-auto max-w-5xl px-4 sm:px-6">
+            <nav className="mb-4 flex flex-wrap gap-x-4 gap-y-2 text-xs font-medium text-zinc-400">
+              <Link className="transition hover:text-teal-300" href="/dashboard">
+                Rental HQ
+              </Link>
+              <Link className="transition hover:text-teal-300" href="/rentals">
+                Property registry
+              </Link>
+            </nav>
+            <p className="text-xs leading-relaxed text-zinc-500">{SITE_DISCLAIMER}</p>
           </div>
         </footer>
       </body>
